@@ -1,0 +1,58 @@
+:root {
+    --scroll-y: 0;
+  }
+
+* {
+    box-sizing: border-box;
+  }
+
+/* ... */
+.fixed {
+    position: fixed;
+    top: var(--scroll-y);
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* 選択を無効化 */
+.user-select-none {
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.dialog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.2s ease-out;
+    opacity: 1;
+    visibility: visible;
+}
+
+.dialog.__hidden {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease-out;
+}
+
+.dialog__bglayer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: -1;
+}
+
+.dialog__container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    overflow-y: scroll;
+}
