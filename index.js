@@ -86,10 +86,11 @@ const handleKeydownDiaogContainer = (e) => {
                 firstFocusableElement.focus();
             }
         }
-        // Escapeの押下でダイアログを閉じる
-        if (e.code === "Escape") {
-            handleDialogClose();
-        }
+    }
+
+    // Escapeの押下でダイアログを閉じる
+    if (e.code === "Escape") {
+        handleDialogClose();
     }
 };
   
@@ -116,6 +117,8 @@ const bgScrollBehavior = (state) => {
       window.scrollTo(0, scrollY * -1);
     }
   };
+
+  const main = document.documentElement.querySelector(".main")
   
   const noSelectContents = (bool) => {
     // .user-select-noneのスタイルを用意
