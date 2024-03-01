@@ -15,6 +15,7 @@ const FOCUSABLE_ELEMENTS = [
   ];
 
   const dialog = document.getElementById("dialog")
+  const main = document.querySelector(".main")
   const openTriggers = [
     ...document.querySelectorAll(`*[data-open-trigger="dialog"]`)
   ];
@@ -42,6 +43,7 @@ const FOCUSABLE_ELEMENTS = [
     // スクロールと選択操作の処理を追加
     bgScrollBehavior("fix");
     noSelectContents(true);
+    main.setAttribute("aria-hidden", true);
   };
   
   // ダイアログを閉じる
@@ -56,6 +58,7 @@ const FOCUSABLE_ELEMENTS = [
     // スクロールと選択操作の処理を追加
     bgScrollBehavior("scroll");
     noSelectContents(false);
+    main.setAttribute("aria-hidden", false);
   };
 
   openTriggers.forEach((trigger) => {
@@ -117,8 +120,6 @@ const bgScrollBehavior = (state) => {
       window.scrollTo(0, scrollY * -1);
     }
   };
-
-  const main = document.documentElement.querySelector(".main")
   
   const noSelectContents = (bool) => {
     // .user-select-noneのスタイルを用意

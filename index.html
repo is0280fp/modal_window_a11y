@@ -7,7 +7,7 @@
     <title>モーダル</title>
 </head>
 <body>
-    <main class="main">
+    <main class="main" aria-hidden="false">
         <h1 class="title">ダイアログの実装例</h1>
         <p class="desc">ベースコーティング</p>
         <div class="container">
@@ -34,9 +34,9 @@
     </main>
     <div id="dialog" class="dialog __hidden">
         <div class="dialog__bglayer" data-close-trigger="dialog"></div>
-        <div class="dialog__container">
-            <h2 class="dialog__title">ダイアログです</h2>
-            <p class="dialog__description">これはダイアログのサンプルです。</p>
+        <div role="dialog" aria-model="true" aria-labelledby="dialog-title" aria-describedby="dialog-desc" class="dialog__container">
+            <h2 id="dialog-title" class="dialog__title">ダイアログです</h2>
+            <p id="dialog-desc" class="dialog__description">これはダイアログのサンプルです。</p>
             <div class="dialog__action">
                 <button data-close-trigger="dialog">ダイアログを閉じる</button>
             </div>
